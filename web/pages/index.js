@@ -8,18 +8,18 @@ function Index(props) {
       <div>
         <h1>Welcome to a blog!</h1>
         {posts.map(
-          ({ _id, title = '', slug = '', _updatedAt = '' }) =>
+          ({ _id, title = "", slug = "", _updatedAt = "" }) =>
             slug && (
               <li key={_id}>
-                <Link prefetch href="/post/[slug]" as={`/post/${slug.current}`}>
+                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
                   <a>{title}</a>
-                </Link>{' '}
+                </Link>{" "}
                 ({new Date(_updatedAt).toDateString()})
               </li>
             )
         )}
       </div>
-    )
+    );
 }
 
 Index.getInitialProps = async () => ({
