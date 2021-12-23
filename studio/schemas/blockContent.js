@@ -63,6 +63,10 @@ export default {
       options: { hotspot: true }
 
     },
-    { type: 'videoFile' }
+    {
+      type: 'videoFile',
+      options: { hotspot: true }
+    }
+
   ]
 }
