@@ -6,7 +6,7 @@ const videoPreview = (props) => {
         ...config.api
     });
 
-    return (<video width={600} height={400} src={tempFile.asset.url}></video>
+    return (<video width={600} height={400} src={tempFile.asset.url} autoPlay controls></video>
         // <video controls>
         //     <source src={props.value.url} type="video/mp4" />
         // </video>
