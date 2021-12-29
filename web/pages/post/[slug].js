@@ -74,10 +74,7 @@ const youtubeDisplay = (props) => {
 export default Post
 
 const videoFileDisplay = (props) => {
-  const tempFile = getFile(props.node.fileName.asset._ref, {
-    "projectId": "xm9rhw6h",
-    "dataset": "production"
-  });
+  const tempFile = getFile(props.node.fileName.asset._ref, client.config());
 
   return (
     <div>
