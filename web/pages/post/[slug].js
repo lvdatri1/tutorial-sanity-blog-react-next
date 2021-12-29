@@ -69,7 +69,7 @@ const youtubeDisplay = (props) => {
   const yId = getYoutubeId(props.node.url);
   // console.log('get youtube id', yId)
   return (
-    <iframe width="560" height="315" src={"https://www.youtube.com/embed/" + yId} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
+    <iframe width="560" height="315" src={"https://www.youtube.com/embed/" + yId} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>)
 }
 export default Post
 
@@ -81,9 +81,9 @@ const videoFileDisplay = (props) => {
 
   return (
     <div>
-      <pre>{JSON.stringify(props, null, 3)}</pre>
+      {/* <pre>{JSON.stringify(props, null, 3)}</pre> */}
 
-      <video width={600} height={400} src={tempFile.asset.url} autoplay controls></video>
+      <video width={600} height={400} src={tempFile.asset.url} autoPlay controls></video>
 
     </div>
 
