@@ -3,6 +3,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import BlockContent from '@sanity/block-content-to-react'
 import client from '../../client'
 import getYoutubeId from 'get-youtube-id';
+import { getFile } from '@sanity/asset-utils'
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source)
@@ -42,7 +43,7 @@ const Post = (props) => {
         blocks={body}
         imageOptions={{ w: 320, h: 240, fit: 'max' }}
         {...client.config()}
-        serializers={{ types: { youtube: youtubeDisplay } }}
+        serializers={{ types: { youtube: youtubeDisplay, videoFile: videoFileDisplay } }}
       />
     </article>
   )
@@ -63,14 +64,7 @@ Post.getInitialProps = async function (context) {
 }
 
 
-const BlockRenderer = (props) => {
-  const { style = 'normal', type = 'normal' } = props.node;
-  console.log('Trinh printered 2', style, type)
-  if (type == 'youtube') {
-    return <div>{"Yotube Block"}</div>
-  }
-  return BlockContent.defaultSerializers.types.block(props);
-}
+
 const youtubeDisplay = (props) => {
   const yId = getYoutubeId(props.node.url);
   // console.log('get youtube id', yId)
@@ -78,3 +72,20 @@ const youtubeDisplay = (props) => {
     <iframe width="560" height="315" src={"https://www.youtube.com/embed/" + yId} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
 }
 export default Post
+
+const videoFileDisplay = (props) => {
+  const tempFile = getFile(props.node.fileName.asset._ref, {
+    "projectId": "xm9rhw6h",
+    "dataset": "production"
+  });
+
+  return (
+    <div>
+      <pre>{JSON.stringify(props, null, 3)}</pre>
+
+      <video width={600} height={400} src={tempFile.asset.url} autoplay controls></video>
+
+    </div>
+
+  )
+}

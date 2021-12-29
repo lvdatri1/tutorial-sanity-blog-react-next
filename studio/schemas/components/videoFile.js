@@ -1,6 +1,12 @@
 import React from "react"
+import { getFile } from '@sanity/asset-utils'
+import config from '../../sanity.json'
 const videoPreview = (props) => {
-    return (<pre>{"here is how" + JSON.stringify(props)}</pre>
+    const tempFile = getFile(props.value.fileName.asset._ref, {
+        ...config.api
+    });
+
+    return (<video width={600} height={400} src={tempFile.asset.url}></video>
         // <video controls>
         //     <source src={props.value.url} type="video/mp4" />
         // </video>

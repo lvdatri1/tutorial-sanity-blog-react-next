@@ -14,12 +14,14 @@
     "sanity"
   ],
   "dependencies": {
+    "@sanity/asset-utils": "^1.2.3",
     "@sanity/base": "^2.23.2",
     "@sanity/components": "^2.14.0",
     "@sanity/core": "^2.23.2",
     "@sanity/default-layout": "^2.23.2",
     "@sanity/default-login": "^2.23.2",
     "@sanity/desk-tool": "^2.23.2",
+    "@sanity/vision": "^2.23.2",
     "get-youtube-id": "^1.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
